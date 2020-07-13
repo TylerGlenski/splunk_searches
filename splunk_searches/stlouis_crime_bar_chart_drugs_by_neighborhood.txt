@@ -1,3 +1,0 @@
-index="stlouis_crime1" crime_num>0 date_year<2016 neighborhood_name!=Unknown Description="DRUGS-POSSESSION*"
-| eval mj_possession= if((Description=="DRUGS-POSSESSION/MARIJUANA"), Description, 0 )
-| chart count over Description by neighborhood_name useother=f usenull=f
