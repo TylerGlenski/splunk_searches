@@ -1,0 +1,42 @@
+<dashboard theme="dark">
+  <label>0814_eve_trade</label>
+  <description>deadspace "blue" items with top 20 pie chart for 08142019</description>
+  <row>
+    <panel>
+      <title>Top 20 ROI</title>
+      <chart>
+        <search>
+          <query>host="DESKTOP-H6M66J7" index="eve_trade_data_08132019" sourcetype="csv" ("Centii" OR "Centum" OR "Centus" OR "Coreli" OR "Corelum" OR "Core" OR "Corpii" OR "Corpum" OR "Corpus" OR "Gistii" OR "Gistum" OR "Gist" OR "Pithi" OR "Pithum" OR "Pith") NOT ("Blueprint" OR "Warp Core" OR "Core Defense" OR "Deep Core")| stats count latest(_time) as _time latest(Quantity) as Quantity latest(R_O_I) as roi latest(From) as from by "Sell Order"|sort - roi|head 20</query>
+          <earliest>0</earliest>
+          <latest></latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="charting.chart">pie</option>
+        <option name="charting.drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </chart>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <title>eve_trade</title>
+      <table>
+        <title>Table</title>
+        <search>
+          <query>host="DESKTOP-H6M66J7" index="eve_trade_data_08132019" sourcetype="csv" ("Centii" OR "Centum" OR "Centus" OR "Coreli" OR "Corelum" OR "Core" OR "Corpii" OR "Corpum" OR "Corpus" OR "Gistii" OR "Gistum" OR "Gist" OR "Pithi" OR "Pithum" OR "Pith") NOT ("Blueprint" OR "Warp Core" OR "Core Defense" OR "Deep Core")| stats count latest(_time) as _time latest(Quantity) as Quantity latest(R_O_I) as roi latest(From) as from by "Sell Order"</query>
+          <earliest>0</earliest>
+          <latest></latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="count">100</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">none</option>
+        <option name="percentagesRow">false</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="rowNumbers">false</option>
+        <option name="totalsRow">false</option>
+        <option name="wrap">true</option>
+      </table>
+    </panel>
+  </row>
+</dashboard>
