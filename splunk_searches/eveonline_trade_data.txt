@@ -1,0 +1,4 @@
+host="DESKTOP-H6M66J7" host="DESKTOP-H6M66J7" index="eve_trade_data_08132019" sourcetype="csv" ("Centii" OR "Centum" OR "Centus" OR "Coreli" OR "Corelum" OR "Core" OR "Corpii" OR "Corpum" OR "Corpus" OR "Gistii" OR "Gistum" OR "Gist" OR "Pithi" OR "Pithum" OR "Pith") NOT ("Blueprint" OR "Warp Core" OR "Core Defense" OR "Deep Core")
+|  stats count latest(_time) as _time latest(Quantity) as Quantity latest(R_O_I) as roi latest(From) as from by "Sell Order"
+| sort - roi
+| head 20
